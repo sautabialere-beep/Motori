@@ -1,0 +1,58 @@
+# ISTRUZIONI PER MODIFICARE QUESTO FILE
+#
+# Ogni riga (che non inizia con #) rappresenta un evento della linea del
+# tempo. I quattro campi sono separati dal simbolo "|" (barra verticale),
+# in questo ordine:
+#
+#   anno | titolo | descrizione | categoria
+#
+# Regole pratiche:
+# - "anno" deve essere un numero (es. 1886). Se una data è indicativa,
+#   scrivilo nella descrizione (es. "circa"), ma lascia comunque un numero
+#   nel campo anno, altrimenti l'evento non si può ordinare né disegnare.
+# - "titolo" e "descrizione" possono contenere qualsiasi testo, ma MAI il
+#   simbolo "|" (altrimenti l'evento si rompe in campi sbagliati).
+# - "categoria" deve essere una di queste parole (minuscolo, senza spazi):
+#     vapore    -> motori a vapore
+#     scoppio   -> motori a combustione interna a benzina / a scoppio
+#     diesel    -> motori diesel
+#     elettrico -> motori e veicoli elettrici
+#     moderno   -> ibridi e sviluppi recenti
+# - Le righe vuote e le righe che iniziano con # vengono ignorate: puoi
+#   usarle per lasciarti dei commenti, come questo blocco qui sopra.
+# - Non è necessario che gli eventi siano già in ordine di anno: la pagina
+#   li ordina da sola.
+#
+# Esempio di evento:
+# 1886 | Automobile di Karl Benz | Karl Benz brevetta a Mannheim (Germania) il Benz Patent-Motorwagen. | scoppio
+#
+# Dati incerti: per l'evento di Jedlik la data esatta è discussa dagli
+# storici (c'è chi dice 1827, chi 1828); per la diffusione delle prime
+# auto elettriche non esiste un anno preciso, è una tendenza di alcuni
+# anni a cavallo del 1900.
+
+1712 | Motore atmosferico di Newcomen | Thomas Newcomen costruisce a Dartmouth, in Inghilterra, il primo motore a vapore usato industrialmente per pompare l'acqua fuori dalle miniere. | vapore
+1769 | Brevetto di James Watt | James Watt brevetta a Glasgow, in Scozia, un motore a vapore con condensatore separato, molto più efficiente di quello di Newcomen. | vapore
+1807 | Motore di De Rivaz | L'ingegnere svizzero François Isaac de Rivaz costruisce in Svizzera uno dei primi motori a combustione interna, alimentato a idrogeno, montandolo su un carro sperimentale. | scoppio
+1821 | Rotazione elettromagnetica di Faraday | A Londra, in Inghilterra, Michael Faraday dimostra il principio della rotazione elettromagnetica: la base teorica su cui nasceranno i futuri motori elettrici. | elettrico
+1828 | Dispositivo di Jedlik | A Pozsony (oggi Bratislava) l'ungherese Anyos Jedlik costruisce un primo dispositivo elettromagnetico rotante, considerato da alcuni storici un antenato del motore elettrico. La data esatta è discussa: alcune fonti indicano il 1827. | elettrico
+1834 | Motore elettrico di Davenport | Nel Vermont, negli Stati Uniti, Thomas Davenport costruisce uno dei primi motori elettrici a corrente continua capaci di compiere un lavoro pratico. | elettrico
+1860 | Motore di Lenoir | In Francia, Etienne Lenoir realizza il primo motore a combustione interna a gas prodotto e venduto su scala commerciale. | scoppio
+1862 | Ciclo teorico di Beau de Rochas | In Francia, l'ingegnere Alphonse Beau de Rochas descrive per primo in un brevetto il principio teorico del ciclo a quattro tempi. | scoppio
+1876 | Motore Otto a quattro tempi | A Deutz, vicino Colonia, in Germania, Nicolaus Otto costruisce il primo motore a combustione interna funzionante secondo il ciclo a quattro tempi. | scoppio
+1884 | Turbina a vapore di Parsons | In Inghilterra, Charles Parsons brevetta la turbina a vapore, che cambierà la produzione di energia elettrica e la propulsione delle navi. | vapore
+1885 | Reitwagen di Daimler e Maybach | A Bad Cannstatt, in Germania, Gottlieb Daimler e Wilhelm Maybach costruiscono il "Reitwagen", il primo veicolo con motore a benzina ad alta velocità. | scoppio
+1886 | Automobile di Karl Benz | A Mannheim, in Germania, Karl Benz brevetta il Benz Patent-Motorwagen, considerata la prima automobile con motore a combustione interna. | scoppio
+1888 | Flocken Elektrowagen | A Coburgo, in Germania, Andreas Flocken costruisce quella che è considerata la prima vera automobile elettrica. | elettrico
+1892 | Brevetto del motore Diesel | In Germania, Rudolf Diesel deposita il brevetto di un motore a combustione interna ad accensione per compressione. | diesel
+1897 | Primo motore Diesel funzionante | Ad Augusta, in Germania, Rudolf Diesel, con l'officina MAN, completa il primo motore Diesel realmente funzionante. | diesel
+1899 | La Jamais Contente | Vicino Parigi, in Francia, l'automobile elettrica "La Jamais Contente", guidata dal belga Camille Jenatzy, supera per prima i 100 km/h. | elettrico
+1900 | Diffusione delle prime auto elettriche | Nei primi anni del Novecento le automobili elettriche sono diffuse soprattutto nelle città degli Stati Uniti, apprezzate perché silenziose e semplici da avviare. Anno indicativo di un periodo, non una data precisa. | elettrico
+1908 | Ford Model T | A Detroit, negli Stati Uniti, Henry Ford lancia la Model T, che rende l'automobile a motore a scoppio un prodotto alla portata di molti. | scoppio
+1912 | MS Selandia | Costruita a Copenaghen, in Danimarca, la nave Selandia è la prima grande nave oceanica spinta da motori Diesel invece che dal vapore. | diesel
+1913 | Catena di montaggio Ford | A Highland Park, in Michigan (Stati Uniti), Henry Ford introduce la catena di montaggio mobile, che abbassa i costi di produzione delle automobili a benzina. | scoppio
+1936 | Mercedes-Benz 260 D | In Germania, Mercedes-Benz presenta la 260 D, la prima automobile di serie con motore Diesel. | diesel
+1957 | Motore Wankel | In Germania, Felix Wankel realizza il primo prototipo funzionante di motore rotativo, un'alternativa al motore a pistoni. | scoppio
+1997 | Toyota Prius | In Giappone, Toyota lancia la Prius, la prima automobile ibrida (motore a scoppio più motore elettrico) prodotta in serie su larga scala. | moderno
+2008 | Tesla Roadster | Negli Stati Uniti, Tesla presenta la Roadster, la prima automobile elettrica di serie omologata per strada con batterie agli ioni di litio. | elettrico
+2010 | Nissan Leaf | In Giappone, Nissan lancia la Leaf, una delle prime automobili elettriche moderne prodotte su larga scala per il mercato di massa. | elettrico

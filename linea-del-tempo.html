@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linea del tempo dei motori</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/timeline.css">
+</head>
+<body>
+
+  <header>
+    <h1>La storia dei motori</h1>
+    <p>Dal vapore all'elettrico: una linea del tempo interattiva</p>
+    <nav class="nav-principale">
+      <a href="index.html">Home</a>
+      <a href="linea-del-tempo.html" aria-current="page">Linea del tempo</a>
+    </nav>
+  </header>
+
+  <main class="largo">
+
+    <section id="vista-timeline">
+
+      <div class="barra-strumenti">
+        <div class="gruppo-filtri" id="filtriCategorie" aria-label="Filtra per categoria">
+          <!-- I pulsanti dei filtri vengono creati da JavaScript -->
+        </div>
+
+        <div class="gruppo-zoom">
+          <label for="zoomRange">Zoom</label>
+          <input type="range" id="zoomRange" min="3" max="20" step="1" value="6">
+        </div>
+
+        <button id="bottoneQuiz" class="bottone-azione">Modalità quiz</button>
+      </div>
+
+      <p class="istruzioni">Scorri con il mouse (o con le dita) per muoverti nel tempo, usa lo zoom per allargare o stringere, filtra le categorie e clicca su un evento per leggerne la scheda.</p>
+
+      <div class="timeline-scroll" id="timelineScroll">
+        <div class="timeline-track" id="timelineTrack">
+          <div class="linea-centrale"></div>
+          <!-- Gli eventi vengono creati da JavaScript -->
+        </div>
+      </div>
+
+      <div class="legenda-schemi">
+        <h2>Schemi di funzionamento</h2>
+        <div class="griglia-schemi" id="grigliaSchemi">
+          <!-- Gli schemi vengono creati da JavaScript -->
+        </div>
+      </div>
+
+    </section>
+
+    <section id="vista-quiz" class="nascosto">
+      <div class="barra-strumenti">
+        <button id="bottoneTornaTimeline" class="bottone-azione">← Torna alla linea del tempo</button>
+        <button id="bottoneNuovaSerie" class="bottone-azione">Nuova serie di eventi</button>
+        <button id="bottoneVerifica" class="bottone-azione bottone-verifica">Verifica ordine</button>
+      </div>
+
+      <p class="istruzioni">Trascina le schede qui sotto nelle caselle numerate, mettendole in ordine dalla più antica alla più recente. Gli anni sono nascosti: aiutati con quello che sai sulla storia dei motori!</p>
+
+      <div id="quizPool" class="quiz-pool" aria-label="Eventi da ordinare"></div>
+
+      <div id="quizSlot" class="quiz-slot" aria-label="Ordine cronologico"></div>
+
+      <p id="quizRisultato" class="quiz-risultato" aria-live="polite"></p>
+    </section>
+
+  </main>
+
+  <div id="overlayScheda" class="overlay nascosto">
+    <div class="scheda-dettaglio" role="dialog" aria-modal="true" aria-labelledby="schedaTitolo">
+      <button id="chiudiScheda" class="chiudi-scheda" aria-label="Chiudi">×</button>
+      <span id="schedaBadge" class="badge-categoria"></span>
+      <h2 id="schedaTitolo"></h2>
+      <p id="schedaAnno" class="scheda-anno"></p>
+      <p id="schedaDescrizione"></p>
+      <img id="schedaImmagine" class="scheda-immagine" alt="" />
+    </div>
+  </div>
+
+  <footer>
+    <p>Sito realizzato con HTML, CSS e JavaScript.</p>
+  </footer>
+
+  <script src="js/timeline.js"></script>
+</body>
+</html>

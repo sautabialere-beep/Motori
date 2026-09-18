@@ -27,6 +27,26 @@ header h1 {
   margin: 0 0 0.5rem 0;
 }
 
+.nav-principale {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.nav-principale a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-principale a:hover,
+.nav-principale a[aria-current="page"] {
+  border-bottom-color: white;
+}
+
 main {
   max-width: 800px;
   margin: 0 auto;

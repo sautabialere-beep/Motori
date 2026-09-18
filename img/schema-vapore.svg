@@ -1,0 +1,36 @@
+<svg viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schema di un motore a vapore">
+  <style>
+    .linea { fill: none; stroke: #5a3a1a; stroke-width: 3; }
+    .metallo { fill: #d8c4a0; stroke: #5a3a1a; stroke-width: 3; }
+    .fuoco { fill: #e07a2c; }
+    .acqua { fill: #bcd8ec; }
+    .testo { font-family: system-ui, sans-serif; font-size: 13px; fill: #3a2a15; }
+    .testoTitolo { font-family: system-ui, sans-serif; font-size: 15px; font-weight: bold; fill: #3a2a15; }
+  </style>
+
+  <!-- Caldaia -->
+  <rect x="30" y="90" width="140" height="80" rx="10" class="metallo" />
+  <rect x="30" y="150" width="140" height="20" class="acqua" opacity="0.6" />
+  <text x="100" y="135" text-anchor="middle" class="testoTitolo">CALDAIA</text>
+
+  <!-- Fuoco sotto la caldaia -->
+  <polygon points="55,190 65,210 75,190 80,215 90,190 100,215 110,190 120,210 130,190" class="fuoco" />
+  <text x="100" y="235" text-anchor="middle" class="testo">Fuoco (legna o carbone)</text>
+
+  <!-- Tubo del vapore -->
+  <path d="M170,110 L230,110 L230,80 L260,80" class="linea" />
+  <text x="205" y="70" text-anchor="middle" class="testo">Vapore</text>
+
+  <!-- Cilindro -->
+  <rect x="260" y="60" width="110" height="45" class="metallo" />
+  <rect x="330" y="65" width="35" height="35" fill="#8c8c8c" stroke="#3a2a15" stroke-width="2" />
+  <text x="315" y="52" text-anchor="middle" class="testoTitolo">CILINDRO</text>
+  <text x="347" y="118" text-anchor="middle" class="testo">pistone</text>
+
+  <!-- Asta e ruota -->
+  <line x1="347" y1="100" x2="347" y2="160" class="linea" />
+  <circle cx="347" cy="200" r="35" fill="none" stroke="#3a2a15" stroke-width="4" />
+  <line x1="347" y1="165" x2="347" y2="200" class="linea" />
+  <circle cx="347" cy="200" r="4" fill="#3a2a15" />
+  <text x="347" y="248" text-anchor="middle" class="testo">ruota / movimento</text>
+</svg>

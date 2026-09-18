@@ -1,0 +1,57 @@
+<svg viewBox="0 0 640 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schema del motore Diesel">
+  <style>
+    .cilindro { fill: #e8e8e8; stroke: #333; stroke-width: 3; }
+    .pistone { fill: #9a9a9a; stroke: #333; stroke-width: 2; }
+    .valvola { fill: #555; }
+    .iniettore { fill: #2c3e50; }
+    .getto { fill: #34495e; }
+    .aria { fill: #dfeaf5; }
+    .gas { fill: #e07a2c; }
+    .scarico { fill: #7a7a7a; }
+    .testo { font-family: system-ui, sans-serif; font-size: 12px; fill: #222; }
+    .titolo { font-family: system-ui, sans-serif; font-size: 13px; font-weight: bold; fill: #222; text-anchor: middle; }
+  </style>
+
+  <!-- 1: Aspirazione (solo aria) -->
+  <g transform="translate(10,10)">
+    <text x="70" y="14" class="titolo">1. ASPIRAZIONE</text>
+    <rect x="30" y="30" width="80" height="120" class="cilindro" />
+    <rect x="26" y="22" width="16" height="12" class="iniettore" />
+    <rect x="20" y="20" width="18" height="14" class="valvola" />
+    <rect x="35" y="110" width="70" height="35" class="aria" />
+    <rect x="30" y="90" width="80" height="14" class="pistone" />
+    <text x="70" y="170" class="testo" text-anchor="middle">entra solo aria</text>
+  </g>
+
+  <!-- 2: Compressione forte -->
+  <g transform="translate(170,10)">
+    <text x="70" y="14" class="titolo">2. COMPRESSIONE</text>
+    <rect x="30" y="30" width="80" height="120" class="cilindro" />
+    <rect x="26" y="22" width="16" height="12" class="iniettore" />
+    <rect x="35" y="40" width="70" height="12" class="aria" />
+    <rect x="30" y="40" width="80" height="14" class="pistone" />
+    <text x="70" y="170" class="testo" text-anchor="middle">aria compressa: si scalda molto</text>
+  </g>
+
+  <!-- 3: Iniezione e autoaccensione -->
+  <g transform="translate(330,10)">
+    <text x="70" y="14" class="titolo">3. INIEZIONE</text>
+    <rect x="30" y="30" width="80" height="120" class="cilindro" />
+    <rect x="26" y="22" width="16" height="12" class="iniettore" />
+    <polygon points="30,34 45,50 35,46 40,58 30,50" class="getto" />
+    <rect x="35" y="50" width="70" height="25" class="gas" />
+    <rect x="30" y="75" width="80" height="14" class="pistone" />
+    <text x="70" y="170" class="testo" text-anchor="middle">il gasolio si accende da solo</text>
+  </g>
+
+  <!-- 4: Scarico -->
+  <g transform="translate(490,10)">
+    <text x="70" y="14" class="titolo">4. SCARICO</text>
+    <rect x="30" y="30" width="80" height="120" class="cilindro" />
+    <rect x="26" y="22" width="16" height="12" class="iniettore" />
+    <rect x="102" y="20" width="18" height="14" class="valvola" />
+    <rect x="35" y="110" width="70" height="35" class="scarico" opacity="0.6" />
+    <rect x="30" y="90" width="80" height="14" class="pistone" />
+    <text x="70" y="170" class="testo" text-anchor="middle">esce il gas bruciato</text>
+  </g>
+</svg>

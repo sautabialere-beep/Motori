@@ -1,0 +1,41 @@
+<svg viewBox="0 0 360 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schema di un motore elettrico">
+  <style>
+    .statore { fill: #eef2f7; stroke: #1b4f72; stroke-width: 3; }
+    .magnete-n { fill: #c0392b; }
+    .magnete-s { fill: #2471a3; }
+    .rotore { fill: #f4d03f; stroke: #7d6608; stroke-width: 2; }
+    .bobina { fill: none; stroke: #7d6608; stroke-width: 3; }
+    .filo { fill: none; stroke: #333; stroke-width: 3; }
+    .testo { font-family: system-ui, sans-serif; font-size: 13px; fill: #1b2631; }
+    .titolo { font-family: system-ui, sans-serif; font-size: 15px; font-weight: bold; fill: #1b2631; }
+    .freccia { fill: #1b4f72; }
+  </style>
+
+  <text x="180" y="24" text-anchor="middle" class="titolo">MOTORE ELETTRICO (semplificato)</text>
+
+  <!-- Statore esterno con magneti -->
+  <circle cx="180" cy="150" r="80" class="statore" />
+  <rect x="90" y="135" width="26" height="30" class="magnete-n" />
+  <text x="103" y="155" text-anchor="middle" fill="white" font-size="13" font-weight="bold">N</text>
+  <rect x="244" y="135" width="26" height="30" class="magnete-s" />
+  <text x="257" y="155" text-anchor="middle" fill="white" font-size="13" font-weight="bold">S</text>
+
+  <!-- Rotore centrale con bobina -->
+  <circle cx="180" cy="150" r="38" class="rotore" />
+  <ellipse cx="180" cy="150" rx="30" ry="12" class="bobina" />
+  <line x1="150" y1="150" x2="210" y2="150" class="filo" />
+
+  <!-- Frecce di rotazione -->
+  <path d="M180,95 A55,55 0 0 1 232,140" fill="none" stroke="#1b4f72" stroke-width="3" />
+  <polygon points="232,140 224,132 238,130" class="freccia" />
+  <path d="M180,205 A55,55 0 0 1 128,160" fill="none" stroke="#1b4f72" stroke-width="3" />
+  <polygon points="128,160 136,168 122,170" class="freccia" />
+
+  <!-- Alimentazione -->
+  <line x1="180" y1="230" x2="180" y2="245" class="filo" />
+  <rect x="160" y="245" width="40" height="15" fill="none" stroke="#333" stroke-width="2" />
+  <text x="180" y="256" text-anchor="middle" font-size="10" fill="#333">+ / -</text>
+
+  <text x="20" y="280" class="testo">La corrente elettrica nella bobina crea un</text>
+  <text x="20" y="296" class="testo">campo magnetico che fa girare il rotore.</text>
+</svg>

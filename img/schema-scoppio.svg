@@ -1,0 +1,58 @@
+<svg viewBox="0 0 640 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schema del motore a scoppio a quattro tempi">
+  <style>
+    .cilindro { fill: #e8e8e8; stroke: #333; stroke-width: 3; }
+    .pistone { fill: #9a9a9a; stroke: #333; stroke-width: 2; }
+    .valvola { fill: #555; }
+    .candela { fill: #c0392b; }
+    .scintilla { fill: #f1c40f; }
+    .miscela { fill: #a7d1f2; }
+    .gas { fill: #e07a2c; }
+    .scarico { fill: #7a7a7a; }
+    .testo { font-family: system-ui, sans-serif; font-size: 12px; fill: #222; }
+    .titolo { font-family: system-ui, sans-serif; font-size: 13px; font-weight: bold; fill: #222; text-anchor: middle; }
+  </style>
+
+  <!-- 1: Aspirazione -->
+  <g transform="translate(10,10)">
+    <text x="70" y="14" class="titolo">1. ASPIRAZIONE</text>
+    <rect x="30" y="30" width="80" height="120" class="cilindro" />
+    <circle cx="30" cy="35" r="6" class="candela" />
+    <rect x="20" y="20" width="18" height="14" class="valvola" />
+    <rect x="102" y="20" width="18" height="10" fill="#555" opacity="0.3" />
+    <rect x="35" y="110" width="70" height="35" class="miscela" />
+    <rect x="30" y="90" width="80" height="14" class="pistone" />
+    <text x="70" y="170" class="testo" text-anchor="middle">entra aria + benzina</text>
+  </g>
+
+  <!-- 2: Compressione -->
+  <g transform="translate(170,10)">
+    <text x="70" y="14" class="titolo">2. COMPRESSIONE</text>
+    <rect x="30" y="30" width="80" height="120" class="cilindro" />
+    <circle cx="30" cy="35" r="6" class="candela" />
+    <rect x="35" y="45" width="70" height="15" class="miscela" />
+    <rect x="30" y="45" width="80" height="14" class="pistone" />
+    <text x="70" y="170" class="testo" text-anchor="middle">il pistone comprime</text>
+  </g>
+
+  <!-- 3: Scoppio -->
+  <g transform="translate(330,10)">
+    <text x="70" y="14" class="titolo">3. SCOPPIO</text>
+    <rect x="30" y="30" width="80" height="120" class="cilindro" />
+    <circle cx="30" cy="35" r="6" class="candela" />
+    <polygon points="26,35 34,35 30,45" class="scintilla" />
+    <rect x="35" y="50" width="70" height="25" class="gas" />
+    <rect x="30" y="75" width="80" height="14" class="pistone" />
+    <text x="70" y="170" class="testo" text-anchor="middle">la candela accende</text>
+  </g>
+
+  <!-- 4: Scarico -->
+  <g transform="translate(490,10)">
+    <text x="70" y="14" class="titolo">4. SCARICO</text>
+    <rect x="30" y="30" width="80" height="120" class="cilindro" />
+    <circle cx="30" cy="35" r="6" class="candela" />
+    <rect x="102" y="20" width="18" height="14" class="valvola" />
+    <rect x="35" y="110" width="70" height="35" class="scarico" opacity="0.6" />
+    <rect x="30" y="90" width="80" height="14" class="pistone" />
+    <text x="70" y="170" class="testo" text-anchor="middle">esce il gas bruciato</text>
+  </g>
+</svg>
