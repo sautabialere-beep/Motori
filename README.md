@@ -1,5 +1,7 @@
 # Motori
 
+Materiale riguardante lo sviluppo dei motori.
+
 Sito statico (HTML, CSS, JavaScript) pubblicato con GitHub Pages.
 
 ## Come modificare i testi del sito
