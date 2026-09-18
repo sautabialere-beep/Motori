@@ -1,0 +1,7 @@
+Benvenuto nel sito dedicato ai motori!
+
+Qui troverai informazioni semplici sui diversi tipi di motore e su come funzionano.
+
+Puoi modificare questo testo aprendo il file "contenuti/home.txt" con un normale editor di testo: non serve saper programmare.
+
+Ogni riga vuota crea un nuovo paragrafo nella pagina.
