@@ -1,7 +1,14 @@
 :root {
-  --colore-testo: #222;
-  --colore-sfondo: #ffffff;
-  --colore-accento: #b02a2a;
+  --colore-testo: #dce6f0;
+  --colore-testo-attenuato: #8fa3b8;
+  --colore-sfondo: #070b14;
+  --colore-pannello: #0e1526;
+  --colore-bordo: #1e2c42;
+  --colore-accento: #00e5ff;
+  --colore-accento-2: #ff2fd0;
+  --ombra-neon: 0 0 12px rgba(0, 229, 255, 0.45);
+  --font-titoli: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --font-dati: ui-monospace, "Cascadia Code", "Consolas", "SFMono-Regular", monospace;
 }
 
 * {
@@ -10,41 +17,77 @@
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  font-family: var(--font-titoli);
   color: var(--colore-testo);
   background-color: var(--colore-sfondo);
+  background-image:
+    linear-gradient(rgba(0, 229, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
   line-height: 1.6;
 }
 
+a {
+  color: var(--colore-accento);
+}
+
 header {
-  background-color: var(--colore-accento);
+  background: linear-gradient(160deg, #0b1120 0%, #101a30 55%, #0b1120 100%);
   color: white;
-  padding: 2rem 1rem;
+  padding: 2.5rem 1rem 2rem;
   text-align: center;
+  border-bottom: 1px solid var(--colore-bordo);
+  box-shadow: 0 8px 30px rgba(0, 229, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(0, 229, 255, 0.15), transparent 60%);
+  pointer-events: none;
 }
 
 header h1 {
   margin: 0 0 0.5rem 0;
+  font-size: 2.2rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-shadow: var(--ombra-neon);
+}
+
+header p {
+  color: var(--colore-testo-attenuato);
+  letter-spacing: 0.03em;
 }
 
 .nav-principale {
-  margin-top: 1rem;
+  margin-top: 1.2rem;
   display: flex;
   justify-content: center;
   gap: 1.5rem;
+  position: relative;
 }
 
 .nav-principale a {
-  color: white;
+  color: var(--colore-testo);
   text-decoration: none;
   font-weight: 600;
-  padding-bottom: 3px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  padding-bottom: 4px;
   border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s, text-shadow 0.2s;
 }
 
 .nav-principale a:hover,
 .nav-principale a[aria-current="page"] {
-  border-bottom-color: white;
+  color: var(--colore-accento);
+  border-bottom-color: var(--colore-accento);
+  text-shadow: var(--ombra-neon);
 }
 
 main {
@@ -53,9 +96,23 @@ main {
   padding: 2rem 1rem;
 }
 
+main p {
+  color: var(--colore-testo);
+}
+
+.pannello {
+  background: var(--colore-pannello);
+  border: 1px solid var(--colore-bordo);
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 0 0 1px rgba(0, 229, 255, 0.04), 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
 footer {
   text-align: center;
-  padding: 1rem;
-  color: #666;
-  font-size: 0.9rem;
+  padding: 1.5rem 1rem;
+  color: var(--colore-testo-attenuato);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--colore-bordo);
+  letter-spacing: 0.03em;
 }

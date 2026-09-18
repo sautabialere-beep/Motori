@@ -20,6 +20,61 @@
     elettrico: { file: 'img/schema-elettrico.svg', titolo: 'Motore elettrico' }
   };
 
+  // Ritratti storici (o fotografie d'epoca) collegati a un evento tramite
+  // l'anno, che nella nostra lista è sempre un numero unico. Le immagini
+  // vengono da Wikimedia Commons, sono di pubblico dominio: vedi CREDITI.md.
+  var IMMAGINI_EVENTI = {
+    1769: { file: 'img/inventori/watt.jpg', alt: 'Ritratto di James Watt' },
+    1807: { file: 'img/inventori/de-rivaz.jpg', alt: 'Ritratto di François Isaac de Rivaz' },
+    1821: { file: 'img/inventori/faraday.jpg', alt: 'Ritratto di Michael Faraday' },
+    1828: { file: 'img/inventori/jedlik.jpg', alt: 'Ritratto di Ányos Jedlik' },
+    1834: { file: 'img/inventori/davenport.jpg', alt: 'Ritratto di Thomas Davenport' },
+    1860: { file: 'img/inventori/lenoir.jpg', alt: 'Ritratto di Étienne Lenoir' },
+    1862: { file: 'img/inventori/beau-de-rochas.jpg', alt: 'Ritratto di Alphonse Beau de Rochas' },
+    1876: { file: 'img/inventori/otto.jpg', alt: 'Ritratto di Nicolaus Otto' },
+    1884: { file: 'img/inventori/parsons.jpg', alt: 'Ritratto di Charles Algernon Parsons' },
+    1885: { file: 'img/inventori/daimler.jpg', alt: 'Ritratto di Gottlieb Daimler' },
+    1886: { file: 'img/inventori/benz.jpg', alt: 'Ritratto di Karl Benz' },
+    1888: { file: 'img/inventori/flocken.jpg', alt: 'Ritratto di Andreas Flocken' },
+    1892: { file: 'img/inventori/diesel.jpg', alt: 'Ritratto di Rudolf Diesel' },
+    1897: { file: 'img/inventori/diesel.jpg', alt: 'Ritratto di Rudolf Diesel' },
+    1899: { file: 'img/inventori/jenatzy.jpg', alt: 'Camille Jenatzy a bordo de "La Jamais Contente"' },
+    1908: { file: 'img/inventori/ford.jpg', alt: 'Ritratto di Henry Ford' },
+    1913: { file: 'img/inventori/ford.jpg', alt: 'Ritratto di Henry Ford' },
+    1957: { file: 'img/inventori/wankel.jpg', alt: 'Ritratto di Felix Wankel' }
+  };
+
+  // Luogo approssimativo di ogni evento (per il planisfero), in latitudine
+  // e longitudine. Coordinate indicative del luogo storico, non un punto
+  // esatto su una mappa catastale.
+  var LUOGHI_EVENTI = {
+    1712: { luogo: 'Dartmouth, Inghilterra', lat: 50.35, lon: -3.58 },
+    1769: { luogo: 'Glasgow, Scozia', lat: 55.86, lon: -4.25 },
+    1807: { luogo: 'Sion, Svizzera', lat: 46.23, lon: 7.36 },
+    1821: { luogo: 'Londra, Inghilterra', lat: 51.51, lon: -0.13 },
+    1828: { luogo: 'Pozsony (oggi Bratislava)', lat: 48.15, lon: 17.11 },
+    1834: { luogo: 'Vermont, Stati Uniti', lat: 43.6, lon: -72.6 },
+    1860: { luogo: 'Parigi, Francia', lat: 48.85, lon: 2.35 },
+    1862: { luogo: 'Digne, Francia', lat: 44.09, lon: 6.24 },
+    1876: { luogo: 'Deutz (Colonia), Germania', lat: 50.93, lon: 6.97 },
+    1884: { luogo: 'Newcastle upon Tyne, Inghilterra', lat: 54.97, lon: -1.61 },
+    1885: { luogo: 'Bad Cannstatt (Stoccarda), Germania', lat: 48.81, lon: 9.21 },
+    1886: { luogo: 'Mannheim, Germania', lat: 49.49, lon: 8.47 },
+    1888: { luogo: 'Coburgo, Germania', lat: 50.26, lon: 10.96 },
+    1892: { luogo: 'Germania', lat: 48.37, lon: 10.90 },
+    1897: { luogo: 'Augusta, Germania', lat: 48.37, lon: 10.90 },
+    1899: { luogo: 'Achères, vicino Parigi, Francia', lat: 48.97, lon: 2.15 },
+    1900: { luogo: 'Stati Uniti', lat: 40.71, lon: -74.01 },
+    1908: { luogo: 'Detroit, Michigan, Stati Uniti', lat: 42.33, lon: -83.05 },
+    1912: { luogo: 'Copenaghen, Danimarca', lat: 55.68, lon: 12.57 },
+    1913: { luogo: 'Highland Park, Michigan, Stati Uniti', lat: 42.40, lon: -83.10 },
+    1936: { luogo: 'Stoccarda, Germania', lat: 48.78, lon: 9.18 },
+    1957: { luogo: 'Neckarsulm, Germania', lat: 49.19, lon: 9.23 },
+    1997: { luogo: 'Toyota City, Giappone', lat: 35.08, lon: 137.16 },
+    2008: { luogo: 'California, Stati Uniti', lat: 37.51, lon: -122.26 },
+    2010: { luogo: 'Yokohama, Giappone', lat: 35.44, lon: 139.64 }
+  };
+
   var NUMERO_EVENTI_QUIZ = 8;
 
   var eventi = [];
@@ -40,6 +95,7 @@
       creaFiltri();
       creaGrigliaSchemi();
       disegnaLineaDelTempo();
+      creaMappa();
       inizializzaQuiz();
     })
     .catch(function () {
@@ -120,7 +176,7 @@
   }
 
   function applicaFiltri() {
-    var nodi = document.querySelectorAll('#timelineTrack [data-categoria]');
+    var nodi = document.querySelectorAll('#timelineTrack [data-categoria], #mappaMarcatori [data-categoria]');
     nodi.forEach(function (nodo) {
       var visibile = categorieAttive[nodo.getAttribute('data-categoria')];
       nodo.classList.toggle('nascosto', !visibile);
@@ -180,7 +236,12 @@
     var overlay = document.getElementById('overlayScheda');
     var badge = document.getElementById('schedaBadge');
     var immagine = document.getElementById('schedaImmagine');
+    var blocchettoSchema = document.getElementById('blocchettoSchema');
+    var immagineStorica = document.getElementById('schedaImmagineStorica');
+    var luogoTesto = document.getElementById('schedaLuogo');
     var schema = SCHEMI[evento.categoria];
+    var ritratto = IMMAGINI_EVENTI[evento.anno];
+    var luogo = LUOGHI_EVENTI[evento.anno];
 
     badge.textContent = CATEGORIE[evento.categoria].etichetta;
     badge.className = 'badge-categoria cat-' + evento.categoria;
@@ -188,15 +249,33 @@
     document.getElementById('schedaAnno').textContent = 'Anno: ' + evento.anno;
     document.getElementById('schedaDescrizione').textContent = evento.descrizione;
 
+    if (luogo) {
+      luogoTesto.textContent = 'Luogo: ' + luogo.luogo;
+      luogoTesto.classList.remove('nascosto');
+    } else {
+      luogoTesto.textContent = '';
+      luogoTesto.classList.add('nascosto');
+    }
+
+    if (ritratto) {
+      immagineStorica.src = ritratto.file;
+      immagineStorica.alt = ritratto.alt;
+      immagineStorica.classList.remove('nascosto');
+    } else {
+      immagineStorica.removeAttribute('src');
+      immagineStorica.classList.add('nascosto');
+    }
+
     if (schema) {
       immagine.src = schema.file;
       immagine.alt = 'Schema di funzionamento: ' + schema.titolo;
-      immagine.classList.remove('nascosto');
+      blocchettoSchema.classList.remove('nascosto');
     } else {
       immagine.removeAttribute('src');
-      immagine.classList.add('nascosto');
+      blocchettoSchema.classList.add('nascosto');
     }
 
+    document.querySelector('.scheda-dettaglio').className = 'scheda-dettaglio cat-' + evento.categoria;
     overlay.classList.remove('nascosto');
     document.getElementById('chiudiScheda').focus();
   }
@@ -226,6 +305,50 @@
         '<img src="' + schema.file + '" alt="Schema di funzionamento: ' + schema.titolo + '">' +
         '<h3>' + schema.titolo + '</h3>';
       griglia.appendChild(scheda);
+    });
+  }
+
+  // --- Planisfero -----------------------------------------------------
+
+  function creaMappa() {
+    var contenitore = document.getElementById('mappaMarcatori');
+    contenitore.innerHTML = '';
+
+    // Raggruppa gli eventi che condividono (circa) lo stesso luogo, così sul
+    // planisfero appare un solo pallino invece di più pallini sovrapposti.
+    var gruppi = {};
+    eventi.forEach(function (evento) {
+      var luogo = LUOGHI_EVENTI[evento.anno];
+      if (!luogo) { return; }
+      var chiave = luogo.lat.toFixed(1) + ',' + luogo.lon.toFixed(1);
+      if (!gruppi[chiave]) {
+        gruppi[chiave] = { luogo: luogo, eventi: [] };
+      }
+      gruppi[chiave].eventi.push(evento);
+    });
+
+    Object.keys(gruppi).forEach(function (chiave) {
+      var gruppo = gruppi[chiave];
+      var xPercento = (gruppo.luogo.lon + 180) / 360 * 100;
+      var yPercento = (90 - gruppo.luogo.lat) / 180 * 100;
+      var primoEvento = gruppo.eventi[0];
+
+      var marcatore = document.createElement('button');
+      marcatore.type = 'button';
+      marcatore.className = 'marcatore-mappa cat-' + primoEvento.categoria;
+      marcatore.style.left = xPercento + '%';
+      marcatore.style.top = yPercento + '%';
+      marcatore.setAttribute('data-categoria', primoEvento.categoria);
+
+      var etichetta = gruppo.luogo.luogo + ': ' + gruppo.eventi.map(function (e) { return e.anno + ' - ' + e.titolo; }).join(' · ');
+      marcatore.setAttribute('aria-label', etichetta);
+      marcatore.title = etichetta;
+
+      marcatore.addEventListener('click', function () {
+        apriScheda(primoEvento);
+      });
+
+      contenitore.appendChild(marcatore);
     });
   }
 
